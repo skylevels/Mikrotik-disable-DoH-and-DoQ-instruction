@@ -1,6 +1,7 @@
 # Mikrotik-disable-DoH-and-DoQ-instruction
 Mikrotik disable DoH and DoQ instruction
 
+Данный набор правил отключет возможность пользоваться DoH и DoQ серверами в локальной сети вашего Микротика.
 Начнем со списка открытых DoH серверов, который загрузим в firewall address-list для ipv4 и ipv6 фаерволов
 
 <details>
