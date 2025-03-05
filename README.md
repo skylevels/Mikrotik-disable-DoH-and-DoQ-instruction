@@ -1148,7 +1148,7 @@ add address=wikimedia-dns.org disabled=no dynamic=no list=DoH_blacklist
 ```
 </details>
 
-Далее добавляем правила на фаервол, блочим TCP, UDP на 443, 853 портах.
+Далее добавляем правила на фаервол, блочим TCP, UDP на самых популярных портах.
 
 ```
 /ip firewall filter
