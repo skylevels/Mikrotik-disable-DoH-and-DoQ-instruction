@@ -1152,11 +1152,11 @@ add address=wikimedia-dns.org disabled=no dynamic=no list=DoH_blacklist
 
 ```
 /ip firewall filter
-add action=reject chain=forward comment="DoH disable" dst-address-list=DoH_blacklist dst-port=443,853 in-interface-list=LAN out-interface-list=WAN protocol=tcp reject-with=icmp-port-unreachable
-add action=reject chain=forward comment="DoQ disable" dst-address-list=DoH_blacklist dst-port=443,853 in-interface-list=LAN out-interface-list=WAN protocol=udp reject-with=icmp-port-unreachable
+add action=reject chain=forward comment="DoH disable" dst-address-list=DoH_blacklist dst-port=443,853,5443 in-interface-list=LAN out-interface-list=WAN protocol=tcp reject-with=icmp-port-unreachable
+add action=reject chain=forward comment="DoQ disable" dst-address-list=DoH_blacklist dst-port=443,853,784,8853,5443 in-interface-list=LAN out-interface-list=WAN protocol=udp reject-with=icmp-port-unreachable
 
 /ipv6 firewall filter
-add action=reject chain=forward comment="DoH disable" dst-address-list=DoH_blacklist dst-port=443,853 in-interface-list=LAN out-interface-list=WAN-ipv6 protocol=tcp reject-with=icmp-no-route
-add action=reject chain=forward comment="DoQ disable" dst-address-list=DoH_blacklist dst-port=443,853 in-interface-list=LAN out-interface-list=WAN-ipv6 protocol=udp reject-with=icmp-no-route
+add action=reject chain=forward comment="DoH disable" dst-address-list=DoH_blacklist dst-port=443,853,5443 in-interface-list=LAN out-interface-list=WAN-ipv6 protocol=tcp reject-with=icmp-no-route
+add action=reject chain=forward comment="DoQ disable" dst-address-list=DoH_blacklist dst-port=443,853,784,8853,5443 in-interface-list=LAN out-interface-list=WAN-ipv6 protocol=udp reject-with=icmp-no-route
 ```
 П.С. UDP трафик блочиться для блокировки DoQ протокола, т.к. на некоторых серверах из вышеприведенного списка он может работать.
